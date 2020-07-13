@@ -1,2 +1,1 @@
-# ElementUI-module
-element-ui 组件的一些理解
+- 对element-ui组件源码学习，理解。
