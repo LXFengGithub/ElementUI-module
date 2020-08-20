@@ -1,0 +1,43 @@
+.el-row {
+  &::after,
+  &::before {
+    display: block;
+    content: ''
+  }
+
+  &::after {
+    clear: both;
+  }
+
+  &--flex {
+    display: flex;
+    &::after,
+    &::before {
+      display: none;
+    }
+
+    &.is-justify-end {
+      justify-content: flex-end;
+    }
+
+    &.is-justify-center {
+      justify-content: center;
+    }
+
+    &.is-justify-space-around {
+      justify-content: space-around;
+    }
+
+    &.is-justify-space-between {
+      justify-content: space-between;
+    }
+
+    &.is-aglin-middle {
+      align-items: center;
+    }
+
+     &.is-aglin-bottom {
+      align-items: flex-end;
+    }
+  }
+}
