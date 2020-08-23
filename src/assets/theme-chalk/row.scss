@@ -1,43 +1,39 @@
-.el-row {
-  &::after,
-  &::before {
-    display: block;
-    content: ''
-  }
+@import "./mixins/mixins.scss";
+@import "./mixins/utils.scss";
 
-  &::after {
-    clear: both;
-  }
+@include b(row) {
+  
+  @include utils-clearfix;
 
-  &--flex {
+  @include m(flex) {
     display: flex;
     &::after,
     &::before {
       display: none;
     }
 
-    &.is-justify-end {
+    @include when(justify-end) {
       justify-content: flex-end;
     }
 
-    &.is-justify-center {
+    @include when(justify-center) {
       justify-content: center;
     }
 
-    &.is-justify-space-around {
+    @include when(justify-space-around) {
       justify-content: space-around;
     }
 
-    &.is-justify-space-between {
+    @include when(justify-space-between) {
       justify-content: space-between;
     }
 
-    &.is-aglin-middle {
+    @include when(aglin-middle) {
       align-items: center;
     }
 
-     &.is-aglin-bottom {
+     @include when(aglin-bottom) {
       align-items: flex-end;
     }
   }
-}
+};

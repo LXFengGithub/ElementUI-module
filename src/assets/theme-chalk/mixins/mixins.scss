@@ -1,0 +1,47 @@
+@import "./config.scss";
+
+/** BEM
+----------------------- */
+@mixin b($block) {
+  $B: $namespace + '-' + $block;
+
+  @at-root {
+    .#{$B} {
+      @content; // 类似 slot
+    }
+  }
+}
+
+// scss 数组为 (a, b, c); js 数组为 [a, b, c];
+// scss 遍历数组方式：
+// @each $item in $list {}
+// @each $key, $value in $map {} --遍历 map() (a, 'cc')
+
+@mixin m($modifier) {
+  // &--flex
+  $selector: &;
+  $currentSelector: '';
+
+  // $--flex, $--block, ...
+  @each $unit in $modifier {
+    $currentSelector: $currentSelector + $selector + $modifier--separator + $unit + ',';
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+}
+
+@mixin when($state) { // 状态
+  $selector: &;
+  $currentSelector: $selector + '.' + $state-prefix + $state;
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+
+}
